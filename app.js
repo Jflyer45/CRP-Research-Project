@@ -14,32 +14,36 @@ for(const sheetName of workbook.SheetNames){
 
 //console.log("json: \n", JSON.stringify(worksheets["crp data"]), "\n\n");
 
-const aggregatedCRPdata = {}
+function getAggregatedCRPdata(){
+    const aggregatedCRPdata = {}
 
-for(const record of worksheets["crp data"]){
-    // console.log(record)
-    
-    if(record.crp_id in aggregatedCRPdata){
-        // Add to exisiting record object
-        aggregatedCRPdata[record.crp_id]["conservationSubsidies"] += record["Conservation Subsidies"]
-        aggregatedCRPdata[record.crp_id]["disasterSubsidies"] += record["disaster subsidies"]
-        aggregatedCRPdata[record.crp_id]["commoditySubsidies"] += record["commodity subsidies"]
-        aggregatedCRPdata[record.crp_id]["years"].push(record.year)
-    }else{
-        aggregatedCRPdata[record.crp_id] = 
-        {
-            "name": record.name,
-            "conservationSubsidies": record["Conservation Subsidies"],
-            "disasterSubsidies": record["disaster subsidies"],
-            "commoditySubsidies": record["commodity subsidies"],
-            "recipientZip": record["recipient zip"],
-            "years": [record.year]
+    for(const record of worksheets["crp data"]){
+        // console.log(record)
+        
+        if(record.crp_id in aggregatedCRPdata){
+            // Add to exisiting record object
+            aggregatedCRPdata[record.crp_id]["conservationSubsidies"] += record["Conservation Subsidies"]
+            aggregatedCRPdata[record.crp_id]["disasterSubsidies"] += record["disaster subsidies"]
+            aggregatedCRPdata[record.crp_id]["commoditySubsidies"] += record["commodity subsidies"]
+            aggregatedCRPdata[record.crp_id]["years"].push(record.year)
+        }else{
+            aggregatedCRPdata[record.crp_id] = 
+            {
+                "name": record.name,
+                "conservationSubsidies": record["Conservation Subsidies"],
+                "disasterSubsidies": record["disaster subsidies"],
+                "commoditySubsidies": record["commodity subsidies"],
+                "recipientZip": record["recipient zip"],
+                "years": [record.year]
+            }
         }
     }
+    return aggregatedCRPdata
 }
 
-// console.log(aggregatedCRPdata)
-const aggrodata = JSON.stringify(aggregatedCRPdata)
-fs.writeFile("aggroData.json", aggrodata, (err) => {
+function jsonToFile(jsonData, fileName){
+    const data = JSON.stringify(jsonData)
+    fs.writeFile(fileName+".json", data, (err) => {
     if(err){throw err;}
 })
+}
