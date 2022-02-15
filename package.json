@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/Jflyer45/CRP-Research-Project/issues"
   },
-  "homepage": "https://github.com/Jflyer45/CRP-Research-Project#readme"
+  "homepage": "https://github.com/Jflyer45/CRP-Research-Project#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "jsontoxml": "^1.0.1",
+    "xlsx": "^0.18.1"
+  }
 }
