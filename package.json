@@ -1,0 +1,20 @@
+{
+  "name": "CRP-Research-Project",
+  "version": "1.0.0",
+  "description": "Jeremy Fischer 2/14/2022\r General data testing and visualization for a research project I am Co-Authoring",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jflyer45/CRP-Research-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jflyer45/CRP-Research-Project/issues"
+  },
+  "homepage": "https://github.com/Jflyer45/CRP-Research-Project#readme"
+}
