@@ -14,7 +14,7 @@ for(const sheetName of workbook.SheetNames){
 
 //console.log("json: \n", JSON.stringify(worksheets["crp data"]), "\n\n");
 
-function getAggregatedCRPdata(){
+function getAggregatedCRPJSON(){
     const aggregatedCRPdata = {}
 
     for(const record of worksheets["crp data"]){
@@ -41,9 +41,33 @@ function getAggregatedCRPdata(){
     return aggregatedCRPdata
 }
 
+//TODO make a json with year totals;
+function getYearlyTotals(){
+    // year: {}
+    yearlyJSON = {}
+
+    for(const record of worksheets["crp data"]){
+        if(record.year in yearlyJSON){
+            yearlyJSON[record.year]["conservationSubsidies"] += record["Conservation Subsidies"]
+            yearlyJSON[record.year]["disasterSubsidies"] += record["disaster subsidies"]
+            yearlyJSON[record.year]["commoditySubsidies"] += record["commodity subsidies"]
+
+        }else{
+            yearlyJSON[record.year] = 
+            {
+                "conservationSubsidies": record["Conservation Subsidies"],
+                "disasterSubsidies": record["disaster subsidies"],
+                "commoditySubsidies": record["commodity subsidies"]
+            }
+        }
+    }
+    return yearlyJSON;
+}
+
+jsonToFile(getYearlyTotals(), "yearlyTotal")
+
 function jsonToFile(jsonData, fileName){
     const data = JSON.stringify(jsonData)
     fs.writeFile(fileName+".json", data, (err) => {
-    if(err){throw err;}
-})
+    if(err){throw err;}})
 }
