@@ -14,6 +14,10 @@ for(const sheetName of workbook.SheetNames){
 
 //console.log("json: \n", JSON.stringify(worksheets["crp data"]), "\n\n");
 
+function getCRPData(){
+    return worksheets["crp data"]
+}
+
 function getAggregatedCRPJSON(){
     const aggregatedCRPdata = {}
 
@@ -63,8 +67,6 @@ function getYearlyTotals(){
     return yearlyJSON;
 }
 
-
-
 jsonToFile(getYearlyTotals(), "yearlyTotal")
 
 function jsonToFile(jsonData, fileName){
@@ -72,3 +74,5 @@ function jsonToFile(jsonData, fileName){
     fs.writeFile(fileName+".json", data, (err) => {
     if(err){throw err;}})
 }
+
+module.exports = {getYearlyTotals, getAggregatedCRPJSON, getCRPData}
