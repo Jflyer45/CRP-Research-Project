@@ -17,6 +17,12 @@ const corsOptions ={
 const app = express();
 app.use(cors(corsOptions)) // Use this after the variable declaration
 
+// CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
+app.all('*', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+});
+
 app.get('/', (req, res) => {
     res.json("Documentation can be found at https://github.com/Jflyer45/CRP-Research-Project");
 })
