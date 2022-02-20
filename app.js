@@ -5,7 +5,7 @@ const jsontoxml = require("jsontoxml")
 // var d3 = require("d3");
 
 // Set up
-const workbook = XLSX.readFile("rural_and_crp_matched_dataset.xlsx");
+const workbook = XLSX.readFile("./Data/rural_and_crp_matched_dataset.xlsx");
 
 let worksheets = {}
 for(const sheetName of workbook.SheetNames){

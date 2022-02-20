@@ -6,6 +6,9 @@
   "scripts": {
     "start": "nodemon index.js"
   },
+  "nodemonConfig": {
+     "ext": "js", "ignore": ["Data"], "delay": "2" 
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jflyer45/CRP-Research-Project.git"
