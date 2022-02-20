@@ -4,7 +4,7 @@
   "description": "Jeremy Fischer 2/14/2022\r General data testing and visualization for a research project I am Co-Authoring",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "nodemonConfig": {
     "ext": "js",
