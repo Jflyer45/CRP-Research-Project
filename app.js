@@ -2,7 +2,6 @@
 const fs = require("fs")
 const XLSX = require("xlsx")
 const jsontoxml = require("jsontoxml")
-// var d3 = require("d3");
 
 // Set up
 const workbook = XLSX.readFile("./Data/rural_and_crp_matched_dataset.xlsx");
