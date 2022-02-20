@@ -41,7 +41,6 @@ function getAggregatedCRPJSON(){
     return aggregatedCRPdata
 }
 
-//TODO make a json with year totals;
 function getYearlyTotals(){
     // year: {}
     yearlyJSON = {}
@@ -63,6 +62,8 @@ function getYearlyTotals(){
     }
     return yearlyJSON;
 }
+
+
 
 jsonToFile(getYearlyTotals(), "yearlyTotal")
 
