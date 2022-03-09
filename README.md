@@ -1,6 +1,5 @@
 # CRP-Research-Project
-
-Jeremy Fischer 2/14/2022
+Jeremy Fischer
 General data testing and visualization for a research project I am Co-Authoring.
 
 Api can be acessed here: https://crp-research-mankato.herokuapp.com/
